@@ -2,20 +2,15 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-WhoaAudioPluginEditor::WhoaAudioPluginEditor (WhoaAudioPluginProcessor& p, juce::AudioProcessorValueTreeState& vts)
-    : AudioProcessorEditor (&p), processorRef (p), valueTreeState (vts)
+WhoaAudioPluginEditor::WhoaAudioPluginEditor (WhoaAudioPluginProcessor& p)
+    : AudioProcessorEditor (&p), processorRef (p)
 {
 	juce::ignoreUnused (processorRef);
-	
-	gainLabel.setText ("Gain", juce::dontSendNotification);
-	addAndMakeVisible (gainLabel);
-	
-	addAndMakeVisible (gainSlider);
-	gainAttachment.reset (new juce::AudioProcessorValueTreeState::SliderAttachment (valueTreeState, "gain", gainSlider));
-    
+
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 300);
+	setResizable(true, true);
 }
 
 WhoaAudioPluginEditor::~WhoaAudioPluginEditor()
@@ -33,6 +28,4 @@ void WhoaAudioPluginEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
-	gainSlider.setBounds(getBounds().removeFromRight(getBounds().getWidth() * 0.8f));
-	gainLabel.setBounds(getBounds());
 }

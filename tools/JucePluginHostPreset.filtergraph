@@ -12,7 +12,7 @@
         <BUS index="0" layout="disabled"/>
       </INPUTS>
       <OUTPUTS>
-        <BUS index="0" layout="L R C Lfe Lss Rss Lrs Rrs"/>
+        <BUS index="0" layout="C"/>
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
@@ -34,7 +34,7 @@
   <FILTER uid="3" x="0.33875" y="0.8951612903225806" useARA="0">
     <PLUGIN name="Audio Output" descriptiveName="" format="Internal" category="I/O devices"
             manufacturer="JUCE" version="1.0" file="" uniqueId="724248cb"
-            isInstrument="0" fileTime="0" infoUpdateTime="0" numInputs="8"
+            isInstrument="0" fileTime="0" infoUpdateTime="0" numInputs="1"
             numOutputs="0" isShell="0" hasARAExtension="0" uid="724248cb"/>
     <STATE>0.</STATE>
     <LAYOUT>
@@ -61,13 +61,12 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <FILTER uid="5" x="0.41" y="0.5362903225806451" useARA="0" uiLastX_Normal="225"
-          uiLastY_Normal="276" uiopen_Normal="0">
-    <PLUGIN name="My Plugin Title" format="VST3" category="Fx|Instrument|Generator|Stereo|Synth|Tools"
-            manufacturer="Whoadrian" version="0.1.0" file="C:\Program Files\Common Files\VST3\My Plugin Title.vst3\Contents\x86_64-win\My Plugin Title.vst3"
-            uniqueId="3b4ebe7a" isInstrument="1" fileTime="18bdebe89b6" infoUpdateTime="18bdec13339"
+  <FILTER uid="6" x="0.45375" y="0.5538461538461539" useARA="0">
+    <PLUGIN name="MidiPad" format="VST3" category="Fx|Tools" manufacturer="Whoadrian"
+            version="0.1.0" file="/Users/whoadrian/Library/Audio/Plug-Ins/VST3/MidiPad.vst3"
+            uniqueId="3b4ebe7b" isInstrument="0" fileTime="18c4f74c6d1" infoUpdateTime="18c4f76630b"
             numInputs="2" numOutputs="2" isShell="0" hasARAExtension="0"
-            uid="6b0d6158"/>
+            uid="2eaf0945"/>
     <STATE>346.VMjLgDU....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9DyM03hUMoFSm4lQt3hKt7zJlcUXxEDZisVRxH1a3vVX3fjTLQmKogjYTwVXogiQY8FMwjENHIUUTkEUKMCR38TNtHzSPcmUi01ZrEFTEwlXmAiUYoWUrIVdzLzSPUjZTEDLDgzaQY0SnIlUX8FMrgjYXcEVxU0UYgCRBwDcTkFR0MyPOUmKEEFLiYkVzETUXgWQVE1ZQcUV30TaO4hKt3hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEVtPDTtHzZGI1YMIiXtPDTtLjKPcjKt3hKt3hKt3haTU0PUQDU3sFaicVTWkEQEYzXmEDOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO..</STATE>
     <LAYOUT>
       <INPUTS>
@@ -78,10 +77,5 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <CONNECTION srcFilter="1" srcChannel="0" dstFilter="5" dstChannel="0"/>
-  <CONNECTION srcFilter="1" srcChannel="1" dstFilter="5" dstChannel="1"/>
-  <CONNECTION srcFilter="2" srcChannel="4096" dstFilter="5" dstChannel="4096"/>
-  <CONNECTION srcFilter="5" srcChannel="0" dstFilter="3" dstChannel="0"/>
-  <CONNECTION srcFilter="5" srcChannel="1" dstFilter="3" dstChannel="1"/>
-  <CONNECTION srcFilter="5" srcChannel="4096" dstFilter="4" dstChannel="4096"/>
+  <CONNECTION srcFilter="6" srcChannel="4096" dstFilter="4" dstChannel="4096"/>
 </FILTERGRAPH>

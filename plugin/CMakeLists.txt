@@ -7,8 +7,8 @@ project(WhoaAudioPlugin VERSION 0.1.0)
 juce_add_plugin(${PROJECT_NAME}
 
         # Publishing
-        PRODUCT_NAME "My Plugin Title" # this will show up as the plugin file
-        PLUGIN_NAME "My Plugin Title" # this will show up in DAWs
+        PRODUCT_NAME "MidiPad" # this will show up as the plugin file
+        PLUGIN_NAME "MidiPad" # this will show up in DAWs
         ICON_BIG assets/pluginIcon.jpg
         ICON_SMALL assets/pluginIcon.jpg
         BUNDLE_ID com.whoadrian.plugins
@@ -16,23 +16,21 @@ juce_add_plugin(${PROJECT_NAME}
         COMPANY_WEBSITE whoadrian.github.io
         COMPANY_EMAIL whoa.adrian@gmail.com
         PLUGIN_MANUFACTURER_CODE Whoa
-        PLUGIN_CODE WA01
+        PLUGIN_CODE WA02
 
         # Builds
-        FORMATS VST3 Standalone
+        FORMATS VST3
         COPY_PLUGIN_AFTER_BUILD TRUE
 
         # Plugin settings
-        VST3_CATEGORIES Fx Instrument Generator Stereo Synth Tools
+        VST3_CATEGORIES Tools
         IS_SYNTH FALSE
         IS_MIDI_EFFECT FALSE
-        NEEDS_MIDI_INPUT TRUE
+        NEEDS_MIDI_INPUT FALSE
         NEEDS_MIDI_OUTPUT TRUE
         BACKGROUND_AUDIO_ENABLED TRUE
-        MICROPHONE_PERMISSION_ENABLED TRUE
-        EDITOR_WANTS_KEYBOARD_FOCUS TRUE
-        IPHONE_SCREEN_ORIENTATIONS UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
-        IPAD_SCREEN_ORIENTATIONS UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+        MICROPHONE_PERMISSION_ENABLED FALSE
+        EDITOR_WANTS_KEYBOARD_FOCUS FALSE
         )
 
 # Links to all necessary dependencies. The present ones are recommended by JUCE.
