@@ -42,6 +42,8 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+    static juce::AudioProcessor::BusesProperties getBusesLayout();
+
 private:
     juce::AudioProcessorValueTreeState parameters;
     std::atomic<float>* xCcValParam = nullptr;

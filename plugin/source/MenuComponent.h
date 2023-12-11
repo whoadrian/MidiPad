@@ -14,11 +14,13 @@ public:
     {
         // Setup titles
         xLabel.setText("X", juce::dontSendNotification);
+        xLabel.setFont(30);
         xLabel.setEditable(false, false);
         xLabel.setJustificationType(juce::Justification::centredLeft);
         addAndMakeVisible(xLabel);
 
         yLabel.setText("Y", juce::dontSendNotification);
+        yLabel.setFont(30);
         yLabel.setEditable(false, false);
         yLabel.setJustificationType(juce::Justification::centredRight);
         addAndMakeVisible(yLabel);
@@ -91,17 +93,6 @@ public:
         yMidiChTitle.setEditable(false, false);
         yMidiChTitle.setJustificationType(juce::Justification::centredRight);
         addAndMakeVisible(yMidiChTitle);
-
-        // Setup lock
-        lockLabel.setEditable(false, false);
-        lockLabel.setJustificationType(juce::Justification::centred);
-        addAndMakeVisible(lockLabel);
-
-        clickLabel.setEditable(false, false);
-        clickLabel.setJustificationType(juce::Justification::centred);
-        clickLabel.setText("(click)", juce::dontSendNotification);
-        clickLabel.setFont(10);
-        addAndMakeVisible(clickLabel);
     }
 
     virtual ~MenuComponent() override = default;
@@ -110,9 +101,6 @@ public:
     {
         xCcValLabel.setText(std::to_string((int)xCcValParam->convertFrom0to1(xCcValParam->getValue())), juce::dontSendNotification);
         yCcValLabel.setText(std::to_string((int)yCcValParam->convertFrom0to1(yCcValParam->getValue())), juce::dontSendNotification);
-
-        bool isLocked = lockParam->getValue() == 1.0f;
-        lockLabel.setText(isLocked ? "LOCKED" : "UNLOCKED", juce::dontSendNotification);
 
         repaint();
     }
@@ -154,10 +142,6 @@ public:
         rowBounds = ySettingsBounds.removeFromTop(rowHeight).reduced(0, 2);
         yMidiChTitle.setBounds(rowBounds.removeFromRight(rowWidth * 0.5f));
         yMidiChBox.setBounds(rowBounds);
-
-        // Lock
-        lockLabel.setBounds(bounds.removeFromTop(bounds.getHeight() * 0.8f));
-        clickLabel.setBounds(bounds);
     }
 
 private:
@@ -214,9 +198,6 @@ private:
     juce::Label yCcValTitle;
     juce::Label xCcValLabel;
     juce::Label yCcValLabel;
-
-    juce::Label lockLabel;
-    juce::Label clickLabel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MenuComponent)
 };

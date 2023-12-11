@@ -24,8 +24,8 @@ juce_add_plugin(${PROJECT_NAME}
 
         # Plugin settings
         VST3_CATEGORIES Tools
-        IS_SYNTH FALSE
-        IS_MIDI_EFFECT FALSE
+        IS_SYNTH TRUE
+        IS_MIDI_EFFECT TRUE
         NEEDS_MIDI_INPUT FALSE
         NEEDS_MIDI_OUTPUT TRUE
         BACKGROUND_AUDIO_ENABLED TRUE

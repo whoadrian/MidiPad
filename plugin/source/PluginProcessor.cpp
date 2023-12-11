@@ -3,7 +3,7 @@
 
 //==============================================================================
 WhoaAudioPluginProcessor::WhoaAudioPluginProcessor()
-     : AudioProcessor (BusesProperties()
+     : AudioProcessor (getBusesLayout()
                      #if ! JucePlugin_IsMidiEffect
                       #if ! JucePlugin_IsSynth
                        //.withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
@@ -32,6 +32,13 @@ WhoaAudioPluginProcessor::WhoaAudioPluginProcessor()
 
 WhoaAudioPluginProcessor::~WhoaAudioPluginProcessor()
 {
+}
+
+juce::AudioProcessor::BusesProperties WhoaAudioPluginProcessor::getBusesLayout()
+{
+    // Live doesn't like to load midi-only plugins, so we add an audio output there.
+    return juce::PluginHostType().isAbletonLive() ? BusesProperties().withOutput ("out", juce::AudioChannelSet::stereo())
+                                            : BusesProperties();
 }
 
 //==============================================================================
@@ -142,6 +149,12 @@ void WhoaAudioPluginProcessor::processBlock (juce::AudioBuffer<float>& buffer,
 {
     juce::ignoreUnused (midiMessages);
     juce::ScopedNoDenormals noDenormals;
+
+    auto totalNumInputChannels  = getTotalNumInputChannels();
+    auto totalNumOutputChannels = getTotalNumOutputChannels();
+
+    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
+        buffer.clear (i, 0, buffer.getNumSamples());
 
     int currentXCcVal =(int)xCcValParam->load();
     if (lastXCcVal != currentXCcVal)
