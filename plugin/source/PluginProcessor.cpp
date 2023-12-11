@@ -13,17 +13,21 @@ WhoaAudioPluginProcessor::WhoaAudioPluginProcessor()
                      ),
                     parameters (*this, nullptr, juce::Identifier ("PluginParameters"),
                     {
-                        std::make_unique<juce::AudioParameterInt> ("xpad", "X Pad", 0, 127, 0),
-                        std::make_unique<juce::AudioParameterInt> ("ypad", "Y Pad", 0, 127, 0),
-                        std::make_unique<juce::AudioParameterInt> ("xcc", "X Cc", 0, 16, 0),
-                        std::make_unique<juce::AudioParameterInt> ("ycc", "Y Cc", 0, 16, 1),
+                        std::make_unique<juce::AudioParameterInt> ("xccval", "X Cc Value", 0, 127, 0),
+                        std::make_unique<juce::AudioParameterInt> ("yccval", "Y Cc Value", 0, 127, 0),
+                        std::make_unique<juce::AudioParameterInt> ("xccch", "X Cc Channel", 0, 16, 0),
+                        std::make_unique<juce::AudioParameterInt> ("yccch", "Y Cc Channel", 0, 16, 1),
+                        std::make_unique<juce::AudioParameterInt> ("xmidich", "X Midi Channel", 1, 16, 0),
+                        std::make_unique<juce::AudioParameterInt> ("ymidich", "Y Midi Channel", 1, 16, 1),
                         std::make_unique<juce::AudioParameterBool> ("locked", "Locked", false)
                     })
 {
-    xPadParam = parameters.getRawParameterValue ("xpad");
-    yPadParam = parameters.getRawParameterValue ("ypad");
-    xCcParam = parameters.getRawParameterValue ("xcc");
-    yCcParam = parameters.getRawParameterValue ("ycc");
+    xCcValParam = parameters.getRawParameterValue ("xccval");
+    yCcValParam = parameters.getRawParameterValue ("yccval");
+    xCcChParam = parameters.getRawParameterValue ("xccch");
+    yCcChParam = parameters.getRawParameterValue ("yccch");
+    xMidiChParam = parameters.getRawParameterValue("xmidich");
+    yMidiChParam = parameters.getRawParameterValue("ymidich");
 }
 
 WhoaAudioPluginProcessor::~WhoaAudioPluginProcessor()
@@ -138,6 +142,20 @@ void WhoaAudioPluginProcessor::processBlock (juce::AudioBuffer<float>& buffer,
 {
     juce::ignoreUnused (midiMessages);
     juce::ScopedNoDenormals noDenormals;
+
+    int currentXCcVal =(int)xCcValParam->load();
+    if (lastXCcVal != currentXCcVal)
+    {
+        midiMessages.addEvent(juce::MidiMessage::controllerEvent((int)xMidiChParam->load(), (int)xCcChParam->load(), currentXCcVal), 0);
+        lastXCcVal = currentXCcVal;
+    }
+
+    int currentYCcVal =(int)yCcValParam->load();
+    if (lastYCcVal != currentYCcVal)
+    {
+        midiMessages.addEvent(juce::MidiMessage::controllerEvent((int)yMidiChParam->load(), (int)yCcChParam->load(), currentYCcVal), 0);
+        lastYCcVal = currentYCcVal;
+    }
 }
 
 //==============================================================================

@@ -4,9 +4,9 @@ class PadComponent final : public juce::Component
 {
 public:
     PadComponent(juce::AudioProcessorValueTreeState& vts) :
-        xPadParam(vts.getParameter("xpad")),
-        yPadParam(vts.getParameter("ypad")),
-        lockedParam(vts.getParameter("locked"))
+            xCcValParam(vts.getParameter("xccval")),
+            yCcValParam(vts.getParameter("yccval")),
+            lockedParam(vts.getParameter("locked"))
     {
     }
 
@@ -22,8 +22,8 @@ public:
 
         const float cursorSize = 10;
         const juce::Point<float> cursorPos = {
-                xPadParam->getValue() * getLocalBounds().toFloat().getWidth(),
-                (1.0f - yPadParam->getValue()) * getLocalBounds().toFloat().getHeight()
+                xCcValParam->getValue() * getLocalBounds().toFloat().getWidth(),
+                (1.0f - yCcValParam->getValue()) * getLocalBounds().toFloat().getHeight()
         };
 
         g.setColour(juce::Colours::yellow);
@@ -38,16 +38,16 @@ public:
             return;
         }
 
-        const float xValue = xPadParam->convertFrom0to1(event.position.x / getLocalBounds().toFloat().getWidth());
-        const float yValue = yPadParam->convertFrom0to1((getLocalBounds().toFloat().getHeight() - event.position.y) / getLocalBounds().toFloat().getHeight());
+        const float xValue = xCcValParam->convertFrom0to1(event.position.x / getLocalBounds().toFloat().getWidth());
+        const float yValue = yCcValParam->convertFrom0to1((getLocalBounds().toFloat().getHeight() - event.position.y) / getLocalBounds().toFloat().getHeight());
 
-        xPadParam->beginChangeGesture();
-        xPadParam->setValueNotifyingHost(xPadParam->convertTo0to1(xValue));
-        xPadParam->endChangeGesture();
+        xCcValParam->beginChangeGesture();
+        xCcValParam->setValueNotifyingHost(xCcValParam->convertTo0to1(xValue));
+        xCcValParam->endChangeGesture();
 
-        yPadParam->beginChangeGesture();
-        yPadParam->setValueNotifyingHost(yPadParam->convertTo0to1(yValue));
-        yPadParam->endChangeGesture();
+        yCcValParam->beginChangeGesture();
+        yCcValParam->setValueNotifyingHost(yCcValParam->convertTo0to1(yValue));
+        yCcValParam->endChangeGesture();
 
         repaint();
     }
@@ -60,8 +60,8 @@ public:
     }
 
 private:
-    juce::RangedAudioParameter* xPadParam;
-    juce::RangedAudioParameter* yPadParam;
+    juce::RangedAudioParameter* xCcValParam;
+    juce::RangedAudioParameter* yCcValParam;
     juce::RangedAudioParameter* lockedParam;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PadComponent)

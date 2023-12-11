@@ -7,7 +7,7 @@ WhoaAudioPluginEditor::WhoaAudioPluginEditor (WhoaAudioPluginProcessor& p, juce:
 {
 	juce::ignoreUnused (processorRef);
 
-    setSize (400, 430);
+    setSize (400, 500);
 	setResizable(true, true);
 
     addAndMakeVisible(padComponent);
@@ -27,8 +27,10 @@ void WhoaAudioPluginEditor::paint (juce::Graphics& g)
 void WhoaAudioPluginEditor::resized()
 {
     auto bounds = getLocalBounds();
+    bounds.reduce(4, 4);
 
-    menuComponent.setBounds(bounds.removeFromBottom(30));
+    menuComponent.setBounds(bounds.removeFromBottom(95));
+    bounds.removeFromBottom(5);
     padComponent.setBounds(bounds);
 }
 

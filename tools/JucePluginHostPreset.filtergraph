@@ -61,20 +61,33 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <FILTER uid="6" x="0.45375" y="0.5538461538461539" useARA="0" uiLastX_Normal="671"
-          uiLastY_Normal="231" uiopen_Normal="1" uiLastX_Generic="163"
+  <FILTER uid="6" x="0.50125" y="0.5307692307692308" useARA="0" uiLastX_Normal="821"
+          uiLastY_Normal="226" uiopen_Normal="1" uiLastX_Generic="164"
           uiLastY_Generic="308" uiopen_Generic="1" uiLastX_Programs="408"
           uiLastY_Programs="307" uiopen_Programs="0">
     <PLUGIN name="MidiPad" format="VST3" category="Fx|Tools" manufacturer="Whoadrian"
             version="0.1.0" file="/Users/whoadrian/Library/Audio/Plug-Ins/VST3/MidiPad.vst3"
-            uniqueId="3b4ebe7b" isInstrument="0" fileTime="18c5879ebe4" infoUpdateTime="18c587b8171"
+            uniqueId="3b4ebe7b" isInstrument="0" fileTime="18c59833784" infoUpdateTime="18c5984787f"
             numInputs="0" numOutputs="0" isShell="0" hasARAExtension="0"
             uid="2eaf0945"/>
-    <STATE>532.VMjLgrf....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9LSL03hUMoFSmg0St3hKt7zJlcUXxEDZisVRxH1a3vVX3fjTLQmKogjYTwVXogiQY8FMwjENHIUUTkEUKMCR38TNtHzSPcmUi01ZrEFTEwlXmAiUYoWUrIVdzLzSPUjZTEDLDgzaQY0SnIlUX8FMrgjYXcEVxU0UYgCRBwDcTkFR0MyPOAUQpQUPvPDRuEkUOglYxfUZIIDRwTjQgASUV8DZtj1R1gDdKkicCQUPIUETMEjTZoFLogzLAcEVpkjPHESQFEFLUY0Sng0TNQmKogTcyLzSPUjZTEDLDgzaQY0SnolLXkVR3sTN1MDUAkTUP0TPRokZvjFRzDzUXoVRBgTLEYTXvTkUOgFUS4DctjFR0MyPOAUQpQUPvPDRuEkUOglcwDVZyYUVpkjPHESQFEFLUY0Sn4RZKYGR3sTN1k2RPcmUi01ZrEFTEwlXmAiUYoWUrIVdzLjKt3hKt3hKt3hKtXlTU0DUQAURWoULEYzXqEEUXoWQF4RPDYFTzDzUXkWSG4RPDYmKtnWPt3hKt3hKt3hKJUELPUTPqI1aYcEV5UkQQcVTWgEOujzPu0Fbu4VYtQmO77hUSQ0LPwVcmklaSQWXzUlO..</STATE>
+    <STATE>794.VMjLgDw....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9TSLw3hUMoFSm4VXt3hKt7zJlcUXxEDZisVRxH1a3vVX3fjTLQmKogjYTwVXogiQY8FMwjENHIUUTkEUKMCR38TNtHzSPcmUi01ZrEFTEwlXmAiUYoWUrIVdzLzSPUjZTEDLDgzaQY0SnIlUX8FMrgjYXcEVxU0UYgCRBwDcTkFR0MyPOAUQpQUPvPDRuEkUOglYxfUZIIDRwTjQgASUV8DZtj1R1gDdKkicCQUPIUETMEjTZoFLogzLAcEVpkjPHESQFEFLUY0Sng0TNQmKogTcyLzSPUjZTEDLDgzaQY0SnolLXkVR3sTN1MDUAkTUP0TPRokZvjFRzDzUXoVRBgTLEYTXvTkUOgFUS4DctjFR0MyPOAUQpQUPvPDRuEkUOglcwDVZyYUVpkjPHESQFEFLUY0Sn4RZKYGR3sTN1MDUAkTUP0TPRokZvjFRyzTLXk1YrgjYXcEVxU0UYgCRB4DctjFR0MyPOAUQpQUPvPDRuEkUOglYxfUZYcEVxkjPHESQFEFLUY0SnQzPLEyLBwDZ2f1S23RUPIUQTMkYpYTV3fjPjM2ZFk0aMYjVn4BZic1cVM1ZvjFR2MiPLg1Mn8zMtTETRUDUSYlZFkENHIEYo0TLX4VRBgTLEYTXvTkUOglZosjcHg2R4X2PTETRUAUSAIkVpASZHQSSwfULEYTXn4BZic1cVM1ZvjFR2gTZLQmKogTcyLzSPUjZTEDLDgzaQY0Sno1Ug8VTVoUZmwFRlg0UXIWUWkENHIESz4RZHU2LC8TctTTXvLlUZQWPUgEdEYUXqE0UYgWSs8jKt3hKt3hKt3hKt3hRUACTEEzZh8VVWgkdUYTTmE0UX4BQP4hPqcjXm0jLh4BQP4xPt.0Qt3hKt3hKt3hKtQUUCUEQTg2ZrM1YQcUVDUjQicVP77RRC8Vav8lak4Fc9vyKVMEUy.Ea0cVZtMEcgQWY9..</STATE>
     <LAYOUT>
       <INPUTS/>
       <OUTPUTS/>
     </LAYOUT>
   </FILTER>
-  <CONNECTION srcFilter="6" srcChannel="4096" dstFilter="4" dstChannel="4096"/>
+  <FILTER uid="7" x="0.51" y="0.7057692307692308" useARA="0" uiLastX_Normal="401"
+          uiLastY_Normal="68" uiopen_Normal="1">
+    <PLUGIN name="MIDI Logger" format="Internal" category="Synth" manufacturer="JUCE"
+            version="1.0.0" file="MIDI Logger" uniqueId="97e2978f" isInstrument="1"
+            fileTime="0" infoUpdateTime="0" numInputs="0" numOutputs="0"
+            isShell="0" hasARAExtension="0" uid="97e2978f"/>
+    <STATE>98.VMjLgjE....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOyQWXzUlO7TWZSQWXzUFH2kFYzgVOhXCLvHBHnUVZmgFc8HxLv.iHu3COuLGcgQWY9..</STATE>
+    <LAYOUT>
+      <INPUTS/>
+      <OUTPUTS/>
+    </LAYOUT>
+  </FILTER>
+  <CONNECTION srcFilter="6" srcChannel="4096" dstFilter="7" dstChannel="4096"/>
+  <CONNECTION srcFilter="7" srcChannel="4096" dstFilter="4" dstChannel="4096"/>
 </FILTERGRAPH>

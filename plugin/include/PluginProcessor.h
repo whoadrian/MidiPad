@@ -44,10 +44,15 @@ public:
 
 private:
     juce::AudioProcessorValueTreeState parameters;
-    std::atomic<float>* xPadParam = nullptr;
-    std::atomic<float>* xCcParam = nullptr;
-    std::atomic<float>* yPadParam = nullptr;
-    std::atomic<float>* yCcParam = nullptr;
+    std::atomic<float>* xCcValParam = nullptr;
+    std::atomic<float>* yCcValParam = nullptr;
+    std::atomic<float>* xCcChParam = nullptr;
+    std::atomic<float>* yCcChParam = nullptr;
+    std::atomic<float>* xMidiChParam = nullptr;
+    std::atomic<float>* yMidiChParam = nullptr;
+
+    int lastXCcVal = -1;
+    int lastYCcVal = -1;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WhoaAudioPluginProcessor)
