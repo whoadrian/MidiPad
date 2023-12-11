@@ -43,6 +43,12 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
 private:
+    juce::AudioProcessorValueTreeState parameters;
+    std::atomic<float>* xPadParam = nullptr;
+    std::atomic<float>* xCcParam = nullptr;
+    std::atomic<float>* yPadParam = nullptr;
+    std::atomic<float>* yCcParam = nullptr;
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WhoaAudioPluginProcessor)
 };

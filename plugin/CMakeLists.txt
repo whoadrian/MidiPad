@@ -66,6 +66,8 @@ target_sources(${PROJECT_NAME}
             # /py_generated
 
             # py_generated=files dir=source extensions=h|cpp
+            source/MenuComponent.h
+            source/PadComponent.h
             source/PluginProcessor.cpp
             source/PluginEditor.cpp
             # /py_generated

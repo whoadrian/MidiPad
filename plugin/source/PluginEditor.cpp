@@ -2,15 +2,16 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-WhoaAudioPluginEditor::WhoaAudioPluginEditor (WhoaAudioPluginProcessor& p)
-    : AudioProcessorEditor (&p), processorRef (p)
+WhoaAudioPluginEditor::WhoaAudioPluginEditor (WhoaAudioPluginProcessor& p, juce::AudioProcessorValueTreeState& vts)
+    : AudioProcessorEditor (&p), processorRef (p), valueTreeState(vts), padComponent(vts), menuComponent(vts)
 {
 	juce::ignoreUnused (processorRef);
 
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    setSize (400, 430);
 	setResizable(true, true);
+
+    addAndMakeVisible(padComponent);
+    addAndMakeVisible(menuComponent);
 }
 
 WhoaAudioPluginEditor::~WhoaAudioPluginEditor()
@@ -20,12 +21,14 @@ WhoaAudioPluginEditor::~WhoaAudioPluginEditor()
 //==============================================================================
 void WhoaAudioPluginEditor::paint (juce::Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
 }
 
 void WhoaAudioPluginEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
+    auto bounds = getLocalBounds();
+
+    menuComponent.setBounds(bounds.removeFromBottom(30));
+    padComponent.setBounds(bounds);
 }
+

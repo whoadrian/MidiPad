@@ -10,8 +10,20 @@ WhoaAudioPluginProcessor::WhoaAudioPluginProcessor()
                       #endif
                        //.withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                     ),
+                    parameters (*this, nullptr, juce::Identifier ("PluginParameters"),
+                    {
+                        std::make_unique<juce::AudioParameterInt> ("xpad", "X Pad", 0, 127, 0),
+                        std::make_unique<juce::AudioParameterInt> ("ypad", "Y Pad", 0, 127, 0),
+                        std::make_unique<juce::AudioParameterInt> ("xcc", "X Cc", 0, 16, 0),
+                        std::make_unique<juce::AudioParameterInt> ("ycc", "Y Cc", 0, 16, 1),
+                        std::make_unique<juce::AudioParameterBool> ("locked", "Locked", false)
+                    })
 {
+    xPadParam = parameters.getRawParameterValue ("xpad");
+    yPadParam = parameters.getRawParameterValue ("ypad");
+    xCcParam = parameters.getRawParameterValue ("xcc");
+    yCcParam = parameters.getRawParameterValue ("ycc");
 }
 
 WhoaAudioPluginProcessor::~WhoaAudioPluginProcessor()
@@ -136,18 +148,29 @@ bool WhoaAudioPluginProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* WhoaAudioPluginProcessor::createEditor()
 {
-    return new WhoaAudioPluginEditor (*this);
+    return new WhoaAudioPluginEditor (*this, parameters);
 }
 
 //==============================================================================
 void WhoaAudioPluginProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
 	juce::ignoreUnused (destData);
+
+    auto state = parameters.copyState();
+    std::unique_ptr<juce::XmlElement> xml (state.createXml());
+    copyXmlToBinary (*xml, destData);
 }
 
 void WhoaAudioPluginProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
 	juce::ignoreUnused (data, sizeInBytes);
+
+
+    std::unique_ptr<juce::XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+
+    if (xmlState.get() != nullptr)
+        if (xmlState->hasTagName (parameters.state.getType()))
+            parameters.replaceState (juce::ValueTree::fromXml (*xmlState));
 }
 
 //==============================================================================
