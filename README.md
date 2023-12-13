@@ -5,6 +5,7 @@
 
 ### Download
 * Download latest release here: https://github.com/whoadrian/MidiPad/releases/tag/v0.1.0
+* Buy me a coffee! https://www.buymeacoffee.com/whoadrian
 
 ![](./tools/screenshot.png)
 
