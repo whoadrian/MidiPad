@@ -22,4 +22,3 @@
 A nice way of working with MidiPad in Ableton is to add it to its own MIDI track.
 In your other tracks with synths, select as MIDI Input, MidiPad from its respective track.
 * Built with JUCE/C++, open-source. Can open this folder as a project in your CMake-compatible IDE and build it yourself :)
-* Free to modify and distribute
