@@ -1,6 +1,6 @@
 #pragma once
 
-#include "juce_gui_extra/misc/juce_AnimatedAppComponent.h"
+#include "juce_gui_extra/juce_gui_extra.h"
 
 class PadComponent final : public juce::AnimatedAppComponent
 {

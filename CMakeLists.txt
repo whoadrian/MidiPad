@@ -21,8 +21,8 @@ message(STATUS "Python CMake autofill tool - Result: ${autofill_result}" )
 # This commands downloads AND configures JUCE. It sets up some variables, like JUCE_SOURCE_DIR.
 CPMAddPackage(
         NAME JUCE
-        GIT_TAG 7.0.8
-        VERSION 7.0.8
+        GIT_TAG 8.0.1
+        VERSION 8.0.1
         GITHUB_REPOSITORY juce-framework/JUCE
         SOURCE_DIR ${LIB_DIR}/juce
 )
@@ -44,6 +44,7 @@ else()
     )
     message(STATUS "JUCE AudioPluginHost - Build Result: ${host_build_result}" )
 endif()
+
 
 # Adds googletest
 CPMAddPackage(

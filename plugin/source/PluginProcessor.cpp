@@ -13,13 +13,13 @@ WhoaAudioPluginProcessor::WhoaAudioPluginProcessor()
                      ),
                     parameters (*this, nullptr, juce::Identifier ("PluginParameters"),
                     {
-                        std::make_unique<juce::AudioParameterInt> ("xccval", "X Cc Value", 0, 127, 0),
-                        std::make_unique<juce::AudioParameterInt> ("yccval", "Y Cc Value", 0, 127, 0),
-                        std::make_unique<juce::AudioParameterInt> ("xccch", "X Cc Channel", 0, 16, 0),
-                        std::make_unique<juce::AudioParameterInt> ("yccch", "Y Cc Channel", 0, 16, 1),
-                        std::make_unique<juce::AudioParameterInt> ("xmidich", "X Midi Channel", 1, 16, 0),
-                        std::make_unique<juce::AudioParameterInt> ("ymidich", "Y Midi Channel", 1, 16, 1),
-                        std::make_unique<juce::AudioParameterBool> ("locked", "Locked", false)
+                        std::make_unique<juce::AudioParameterInt> (juce::ParameterID("xccval", 1), "X Cc Value", 0, 127, 0),
+                        std::make_unique<juce::AudioParameterInt> (juce::ParameterID("yccval", 1), "Y Cc Value", 0, 127, 0),
+                        std::make_unique<juce::AudioParameterInt> (juce::ParameterID("xccch", 1), "X Cc Channel", 0, 16, 0),
+                        std::make_unique<juce::AudioParameterInt> (juce::ParameterID("yccch", 1), "Y Cc Channel", 0, 16, 1),
+                        std::make_unique<juce::AudioParameterInt> (juce::ParameterID("xmidich", 1), "X Midi Channel", 1, 16, 0),
+                        std::make_unique<juce::AudioParameterInt> (juce::ParameterID("ymidich", 1), "Y Midi Channel", 1, 16, 1),
+                        std::make_unique<juce::AudioParameterBool> (juce::ParameterID("locked", 1), "Locked", false)
                     })
 {
     xCcValParam = parameters.getRawParameterValue ("xccval");
