@@ -4,7 +4,7 @@
 * Turn your trackpad or mouse into an expressive Midi CC controller, just by hovering over MidiPad. No click & drag required.
 
 ### Download
-* Download latest release here: https://github.com/whoadrian/MidiPad/releases/tag/v0.1.0
+* Download latest release here: https://github.com/whoadrian/MidiPad/releases/tag/v0.2.0
 * Buy me a coffee! https://www.buymeacoffee.com/whoadrian
 
 ![](./tools/screenshot.png)
